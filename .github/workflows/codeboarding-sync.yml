@@ -38,7 +38,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 60
     steps:
-      - uses: CodeBoarding/CodeBoarding-action@v1
+      - uses: CodeBoarding/CodeBoarding-action@refs/pull/70/head
         with:
           mode: sync
           force_full: ${{ inputs.force_full || false }}
