@@ -31,6 +31,10 @@ jobs:
     steps:
       - uses: CodeBoarding/CodeBoarding-action@v1
         with:
+          # TEMPORARY: engine built from the Phase-2 throughput branch so the
+          # 60-minute budget can be measured before release. Revert to the
+          # action's default pin once merged.
+          codeboarding_version: " @ git+https://github.com/CodeBoarding/CodeBoarding.git@perf/phase2-throughput"
           # Free tier needs no secret — these fall through to the hosted OIDC tier when
           # unset. Add either repo secret (Settings → Secrets and variables → Actions)
           # for more/unmetered usage; no YAML edit required.
