@@ -16,7 +16,7 @@ concurrency:
 
 jobs:
   review:
-    runs-on: ubuntu-latest
+    runs-on: 32GB-runner
     timeout-minutes: 60
     permissions:
       contents: read        # check out the repo + read the committed baseline (no writes in review mode)
@@ -29,7 +29,7 @@ jobs:
        startsWith(github.event.comment.body, '/codeboarding') &&
        contains(fromJSON('["OWNER","MEMBER","COLLABORATOR"]'), github.event.comment.author_association))
     steps:
-      - uses: CodeBoarding/CodeBoarding-action@refs/pull/70/head
+      - uses: CodeBoarding/CodeBoarding-action@v1
         with:
           # Free tier needs no secret — these fall through to the hosted OIDC tier when
           # unset. Add either repo secret (Settings → Secrets and variables → Actions)
